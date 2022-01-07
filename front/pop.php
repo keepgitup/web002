@@ -44,7 +44,7 @@
 
 if(($now-1)>0){
     $prev=$now-1;
-    echo "<a href='index.php?do=pop&p=$prev'> ";
+    echo "<a href='index.php?do=news&p=$prev'> ";
     echo " < ";
     echo " </a>";
 }
@@ -52,14 +52,14 @@ if(($now-1)>0){
 
 for($i=1;$i<=$pages;$i++){
     $font=($now==$i)?'24px':'16px';
-    echo "<a href='index.php?do=pop&p=$i' style='font-size:$font'> ";
+    echo "<a href='index.php?do=news&p=$i' style='font-size:$font'> ";
     echo $i;
     echo " </a>";
 }
 
 if(($now+1)<=$pages){
     $next=$now+1;
-    echo "<a href='index.php?do=pop&p=$next'> ";
+    echo "<a href='index.php?do=news&p=$next'> ";
     echo " > ";
     echo " </a>";
 }
