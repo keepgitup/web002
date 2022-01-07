@@ -32,7 +32,7 @@
             </div>
         </td>
         <td>
-            <?=$row['good'];?>個人說<img src='icon/02B03.jpg' style='width:25px'>
+            <span><?=$row['good'];?></span>個人說<img src='icon/02B03.jpg' style='width:25px'>
             -<?php
                 if(isset($_SESSION['login'])){
                     $chk=$Log->math('count','*',['news'=>$row['id'],'user'=>$_SESSION['login']]);
@@ -88,14 +88,19 @@ $(".g").on("click",function(){
         let news=$(this).data('news')
     $.post("api/good.php",{type,news},()=>{
         location.reload()
-/*         switch(type){
-            case 1:
+/*        let count;
+         switch(type){
+            case 1:  //收回讚
                $(this).text("讚");
                $(this).data('type',2)
+                count=$(this).siblings('span').text()*1
+                $(this).siblings('span').text(count-1)
             break;
             case 2:
                 $(this).text("收回讚");
                 $(this).data('type',1)
+                count=$(this).siblings('span').text()*1
+                $(this).siblings('span').text(count+1)
             break;
         } */
     })
