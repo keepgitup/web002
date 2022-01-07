@@ -33,6 +33,17 @@
         </td>
         <td>
             <?=$row['good'];?>個人說<img src='icon/02B03.jpg' style='width:25px'>
+            -<?php
+                if(isset($_SESSION['login'])){
+                    $chk=$Log->math('count','*',['news'=>$row['id'],'user'=>$_SESSION['login']]);
+                    if($chk>0){
+                        echo "<a class='g' data-news='{$row['id']}' data-type='1'>收回讚</a>";
+                    }else{
+                        echo "<a class='g' data-news='{$row['id']}' data-type='2'>讚</a>";
+                    }
+                }
+
+            ?>
         </td>
     </tr>
     <?php
@@ -44,7 +55,7 @@
 
 if(($now-1)>0){
     $prev=$now-1;
-    echo "<a href='index.php?do=news&p=$prev'> ";
+    echo "<a href='index.php?do=pop&p=$prev'> ";
     echo " < ";
     echo " </a>";
 }
@@ -52,14 +63,14 @@ if(($now-1)>0){
 
 for($i=1;$i<=$pages;$i++){
     $font=($now==$i)?'24px':'16px';
-    echo "<a href='index.php?do=news&p=$i' style='font-size:$font'> ";
+    echo "<a href='index.php?do=pop&p=$i' style='font-size:$font'> ";
     echo $i;
     echo " </a>";
 }
 
 if(($now+1)<=$pages){
     $next=$now+1;
-    echo "<a href='index.php?do=news&p=$next'> ";
+    echo "<a href='index.php?do=pop&p=$next'> ";
     echo " > ";
     echo " </a>";
 }
@@ -72,5 +83,21 @@ $(".switch").hover(
     function(){
     $(this).parent().find(".pop").toggle()
 })
-
+$(".g").on("click",function(){
+        let type=$(this).data('type')
+        let news=$(this).data('news')
+    $.post("api/good.php",{type,news},()=>{
+        location.reload()
+/*         switch(type){
+            case 1:
+               $(this).text("讚");
+               $(this).data('type',2)
+            break;
+            case 2:
+                $(this).text("收回讚");
+                $(this).data('type',1)
+            break;
+        } */
+    })
+})
 </script>
