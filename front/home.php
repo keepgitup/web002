@@ -20,12 +20,12 @@
 }
 </style>
 <div style="display:flex;margin-left:1px">
-  <div class="tag">健康新知</div>
-  <div class="tag">菸害防治</div>
-  <div class="tag">癌症防治</div>
-  <div class="tag">慢性病防治</div>
+  <div class="tag active" id='t1'>健康新知</div>
+  <div class="tag" id='t2'>菸害防治</div>
+  <div class="tag" id='t3'>癌症防治</div>
+  <div class="tag" id='t4'>慢性病防治</div>
 </div>
-<div class="post">
+<div class="post" id="p1">
   <h1>健康新知</h1>
 <pre>
 缺乏運動已成為影響全球死亡率的第四大危險因子-國人無規律運動之比率高達72.2%
@@ -48,19 +48,18 @@
 
 </pre>
 </div>
-<div class="post">2</div>
-<div class="post">3</div>
-<div class="post">4</div>
+<div class="post" id="p2">2</div>
+<div class="post" id="p3">3</div>
+<div class="post" id="p4">4</div>
 
 <script>
-$(".post").first().show()
-$(".tag").first().addClass('active')
+$("#p1").show();
 $(".tag").on("click",function(){
-    let idx=$(this).index()
+    let id=$(this).attr('id').replace("t","p")
     $(".tag").removeClass("active")
     $(this).addClass('active')
     $(".post").hide()
-    $(".post").eq(idx).show()
+    $("#"+id).show()
 })
 
 </script>
