@@ -23,7 +23,19 @@
             <div class="short"><?=mb_substr($row['text'],0,20);?>...</div>
             <div class="full" style="display:none"><?=nl2br($row['text']);?></div>
         </td>
-        <td></td>
+        <td>
+            <?php
+                if(isset($_SESSION['login'])){
+                    $chk=$Log->math('count','*',['news'=>$row['id'],'user'=>$_SESSION['login']]);
+                    if($chk>0){
+                        echo "<a class='g' data-news='{$row['id']}' data-type='1'>收回讚</a>";
+                    }else{
+                        echo "<a class='g' data-news='{$row['id']}' data-type='2'>讚</a>";
+                    }
+                }
+
+            ?>
+        </td>
     </tr>
     <?php
     }
@@ -62,4 +74,21 @@ $(".switch").on("click",function(){
     $(this).parent().find(".short,.full").toggle()
 })
 
+$(".g").on("click",function(){
+        let type=$(this).data('type')
+        let news=$(this).data('news')
+    $.post("api/good.php",{type,news},()=>{
+        //location.reload()
+        switch(type){
+            case 1:
+               $(this).text("讚");
+               $(this).data('type',2)
+            break;
+            case 2:
+                $(this).text("收回讚");
+                $(this).data('type',1)
+            break;
+        }
+    })
+})
 </script>
