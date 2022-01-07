@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-01-03 03:58:29
+-- 產生時間： 2022-01-07 09:32:13
 -- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 7.4.23
+-- PHP 版本： 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫: `web002`
+-- 資料庫: `web02`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +28,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `log` (
-  `id` int(10) NOT NULL COMMENT '流水號',
-  `news` int(5) NOT NULL COMMENT '文章id',
-  `user` text NOT NULL COMMENT '會員帳號'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(11) UNSIGNED NOT NULL,
+  `news` int(11) UNSIGNED NOT NULL,
+  `user` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `log`
+--
+
+INSERT INTO `log` (`id`, `news`, `user`) VALUES
+(4, 5, 'salce'),
+(5, 4, 'salce'),
+(8, 7, 'salce'),
+(9, 1, 'salce'),
+(10, 2, 'salce'),
+(13, 4, 'micheal'),
+(15, 7, 'micheal'),
+(16, 1, 'micheal');
 
 -- --------------------------------------------------------
 
@@ -40,13 +54,28 @@ CREATE TABLE `log` (
 --
 
 CREATE TABLE `news` (
-  `id` int(10) NOT NULL COMMENT '流水號',
-  `title` text NOT NULL COMMENT '標題',
-  `text` text NOT NULL COMMENT '內容',
-  `type` int(5) NOT NULL COMMENT '分類',
-  `googd` int(5) NOT NULL DEFAULT 0 COMMENT '按讚數',
-  `sh` int(1) NOT NULL DEFAULT 1 COMMENT '顯示'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` int(1) UNSIGNED NOT NULL,
+  `good` int(11) UNSIGNED NOT NULL,
+  `sh` int(1) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `text`, `type`, `good`, `sh`) VALUES
+(1, '缺乏運動就會導致很累所以要運動一下', '缺乏運動就會導致很累所以要運動一下\r\n讚讚讚讚讚讚自讚讚讚讚讚案讚讚讚讚讚讚讚', 1, 2, 1),
+(2, '缺乏運動就會導致很累所以要運動一下', '缺乏運動就會導致很累所以要運動一下\r\n讚讚讚讚讚讚自讚讚讚讚讚案讚讚讚讚讚讚讚\r\n棒棒棒棒', 1, 1, 1),
+(4, '缺乏運動就會導致很累所以要運動一下', '缺乏運動就會導致很累所以要運動一下\r\n讚讚讚讚讚讚自讚讚讚讚讚案讚讚讚讚讚讚讚\r\n棒棒棒棒', 1, 2, 1),
+(5, '自製運動的作法', '自製運動的作法超棒火火火火火力麗,太多了八\r\n太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八', 2, 1, 1),
+(7, '自製運動的作法', '自製運動的作法超棒火火火火火力麗,太多了八\r\n太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八太多了八', 2, 2, 1),
+(9, '泌尿新知今天天氣好冷', '泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷明天會回暖嗎', 3, 0, 1),
+(10, '泌尿新知今天天氣好冷', '泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷明天會回暖嗎', 3, 0, 1),
+(11, '泌尿新知今天天氣好冷', '泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷明天會回暖嗎', 3, 0, 1),
+(12, '泌尿新知今天天氣好冷', '泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷泌尿新知今天天氣好冷明天會回暖嗎', 3, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -55,11 +84,11 @@ CREATE TABLE `news` (
 --
 
 CREATE TABLE `que` (
-  `id` int(10) NOT NULL COMMENT '流水號',
-  `text` text NOT NULL COMMENT '文字內容',
-  `parent` int(5) NOT NULL COMMENT '題目id',
-  `count` int(5) NOT NULL COMMENT '統計'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(11) UNSIGNED NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `parent` int(11) UNSIGNED NOT NULL,
+  `count` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -68,11 +97,20 @@ CREATE TABLE `que` (
 --
 
 CREATE TABLE `user` (
-  `id` int(10) NOT NULL COMMENT '流水號',
-  `acc` text NOT NULL COMMENT '帳　　號',
-  `pw` text NOT NULL COMMENT '密　　碼',
-  `email` text NOT NULL COMMENT '電子郵件'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(11) UNSIGNED NOT NULL,
+  `acc` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pw` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `user`
+--
+
+INSERT INTO `user` (`id`, `acc`, `pw`, `email`) VALUES
+(1, 'admin', '1234', 's22464580s@gmail.com'),
+(3, 'salce', '4560', 's22464580s@gmail.com'),
+(4, 'micheal', '2246', 's22464560@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -81,10 +119,18 @@ CREATE TABLE `user` (
 --
 
 CREATE TABLE `view` (
-  `id` int(10) NOT NULL COMMENT '流 水 號',
-  `date` date NOT NULL COMMENT '日期',
-  `total` int(10) NOT NULL COMMENT '訪客人數'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(11) UNSIGNED NOT NULL,
+  `date` date NOT NULL,
+  `total` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `view`
+--
+
+INSERT INTO `view` (`id`, `date`, `total`) VALUES
+(1, '2022-01-03', 3),
+(2, '2022-01-07', 1);
 
 --
 -- 已傾印資料表的索引
@@ -128,31 +174,31 @@ ALTER TABLE `view`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '流水號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '流水號';
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `que`
 --
 ALTER TABLE `que`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '流水號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '流水號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `view`
 --
 ALTER TABLE `view`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '流 水 號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
