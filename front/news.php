@@ -8,7 +8,10 @@
     </tr>
     <?php
 
-    $total=$News->math("count","*");
+// 這裡要改掉 不然後面算total 分頁會還不到5筆就跑分頁出來
+    // $total=$News->math("count","*");
+
+    $total=$News->math("count","*",['sh'=>1]);
     $div=5;
     $pages=ceil($total/$div);
     $now=$_GET['p']??1;

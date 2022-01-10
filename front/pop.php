@@ -13,7 +13,9 @@
         "3"=>"癌症防治",
         "4"=>"慢性病防治",
     ];
-    $total=$News->math("count","*");
+    
+    // $total=$News->math("count","*");
+    $total=$News->math("count","*",['sh'=>1]);
     $div=5;
     $pages=ceil($total/$div);
     $now=$_GET['p']??1;
