@@ -4,7 +4,7 @@ $subject=$Que->find($_GET['id']);
 <fieldset>
     <legend>目前位置：首頁>問卷調查><?=$subject['text'];?></legend>
     <h3><?=$subject['text'];?></h3>
-<form action="api/vote.php" method="post">
+<form action="../api/vote.php" method="post">
     <?php
     
     //$options=$Que->all(['parent'=>$subject['id']])

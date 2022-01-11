@@ -56,7 +56,7 @@
 							if(file_exists($file)){
 								include $file;
 							}else{
-								include "back/home.php";
+								include "./back/home.php";
 							}
 						?>
                 		</div>

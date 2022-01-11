@@ -1,6 +1,6 @@
 <fieldset>
     <legend>新增問卷</legend>
-<form action="api/que.php" method="post">
+<form action="../api/que.php" method="post">
     <div style="display:flex">
         <div class="clo">問卷名稱</div>
         <div>

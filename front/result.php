@@ -1,5 +1,6 @@
 <?php
 $subject=$Que->find($_GET['id']);
+print_r($subject);
 ?>
 <fieldset>
     <legend>目前位置：首頁>問卷調查><?=$subject['text'];?></legend>
@@ -7,6 +8,7 @@ $subject=$Que->find($_GET['id']);
     <?php
     //$options=$Que->all(['parent'=>$subject['id']])
     $options=$Que->all(['parent'=>$_GET['id']]);
+    print_r($options);
     foreach($options as $key => $opt){
         $div=($subject['count']==0)?1:$subject['count'];
         $rate=round($opt['count']/$div,2);

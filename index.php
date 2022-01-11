@@ -1,5 +1,5 @@
 ﻿<?php
-include_once "base.php";
+include_once "./base.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
@@ -35,7 +35,7 @@ include_once "base.php";
 	<!-- <iframe name="back" style="display:none;"></iframe> -->
 	<div id="all">
 		<?php
-		include 'front/header.php';
+		include './front/header.php';
 		?>
 		<div id="mm">
 			<div class="hal" id="lef">
@@ -75,12 +75,13 @@ include_once "base.php";
 						<?php
 						// 把其他php當成do,假如有get到 就存到$do 沒有就get home
 						$do=$_GET['do']??'home';
+						// print_r($do);
 						// 再把有存到du變數的 丟到$file 判斷$file有沒有東西
 						$file='front/'.$do.".php";
 						if (file_exists($file)){
 							include $file;
 						}else{
-							include "front/home.php";
+							include "./front/home.php";
 						}
 
 						?>
@@ -89,7 +90,7 @@ include_once "base.php";
 			</div>
 		</div>
 		<?php
-		include 'front/footer.php';
+		include './front/footer.php';
 		?>
 	</div>
 

@@ -1,4 +1,4 @@
-<?php include_once "./base.php";
+<?php include_once "../base.php";
 
 $opt=$Que->find($_POST['opt']);
 $opt['count']++;
