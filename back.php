@@ -15,7 +15,7 @@
 </div>
 
 	<div id="all">
-	<?php include "front/header.php";?>
+	<?php include "front/header1.php";?>
         <div id="mm">
         	<div class="hal" id="lef">
 				<a class="blo" href="?do=admin">帳號管理</a>

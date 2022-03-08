@@ -35,7 +35,7 @@ include_once "./base.php";
 	<!-- <iframe name="back" style="display:none;"></iframe> -->
 	<div id="all">
 		<?php
-		include './front/header.php';
+		include './front/header1.php';
 		?>
 		<div id="mm">
 			<div class="hal" id="lef">

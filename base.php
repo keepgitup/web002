@@ -154,15 +154,22 @@ $Log=new DB('log');
 if(!isset($_SESSION['view'])){
     
     if($View->math('count','*',['date'=>date("Y-m-d")])>0){
+        // print_r $View->math('count','*',['date'=>date("Y-m-d")]);
         $view=$View->find(['date'=>date("Y-m-d")]);
+        print_r($view);
         //$view['total']++
         //$view['total']=$view['total']+1;
         $view['total']+=1;
+        print_r($view['total']);
         $View->save($view);
+        print_r($View->save($view));
         $_SESSION['view']=$view['total'];
+        print_r($_SESSION['view']);
     }else{
         $View->save(['date'=>date("Y-m-d"),'total'=>1]);
+        print_r($View);
         $_SESSION['view']=1;
+        print_r($_SESSION['view']);
     }
 }
 
