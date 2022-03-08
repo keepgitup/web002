@@ -14,13 +14,13 @@ include_once "./base.php";
 	<script src="./js/js.js"></script>
 	<style>
 	.pop{
-		background:rgba(51,51,51,0.8); 
-		color:#FFF; 
-		height:300px; 
-		width:300px; 
-		position:absolute; 
-		display:none; 
-		z-index:9999; 
+		background:rgba(51,51,51,0.8);
+		color:#FFF;
+		height:300px;
+		width:300px;
+		position:absolute;
+		display:none;
+		z-index:9999;
 		overflow:auto;
 	}
 
@@ -35,7 +35,7 @@ include_once "./base.php";
 	<!-- <iframe name="back" style="display:none;"></iframe> -->
 	<div id="all">
 		<?php
-		include './front/header1.php';
+		include './front/header.php';
 		?>
 		<div id="mm">
 			<div class="hal" id="lef">
@@ -66,7 +66,7 @@ include_once "./base.php";
 					<?php
 					}else{
 					?>
-						<a href="?do=login">會員登入</a>					
+						<a href="?do=login">會員登入</a>
 					<?php
 					}
 					?>

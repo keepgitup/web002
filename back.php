@@ -15,7 +15,7 @@
 </div>
 
 	<div id="all">
-	<?php include "front/header1.php";?>
+	<?php include "front/header.php";?>
         <div id="mm">
         	<div class="hal" id="lef">
 				<a class="blo" href="?do=admin">帳號管理</a>
@@ -44,7 +44,7 @@
 					<?php
 					}else{
 					?>
-						<a href="?do=login">會員登入</a>					
+						<a href="?do=login">會員登入</a>
 					<?php
 					}
 					?>

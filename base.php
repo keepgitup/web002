@@ -44,14 +44,14 @@ class DB{
             break;
             case 1:
                 if(is_array($arg[0])){
-                    
+
                     foreach($arg[0] as $key => $value){
                         $tmp[]="`$key`='$value'";
                     }
                     $sql .= " WHERE ".implode(" AND ",$tmp);
                 }else{
                     $sql .= $arg[0];
-                    
+
                 }
             break;
         }
@@ -78,7 +78,7 @@ class DB{
                     $sql .= " WHERE ".implode(" AND ",$tmp);
                 }else{
                     $sql .= $arg[0];
-                    
+
                 }
             break;
         }
@@ -92,13 +92,13 @@ class DB{
             foreach($array as $key => $value){
                 $tmp[]="`$key`='$value'";
             }
-            $sql="UPDATE $this->table 
+            $sql="UPDATE $this->table
                      SET ".implode(",",$tmp)."
                    WHERE `id`='{$array['id']}'";
         }else{
             //insert
 
-            $sql="INSERT INTO $this->table (`".implode("`,`",array_keys($array))."`) 
+            $sql="INSERT INTO $this->table (`".implode("`,`",array_keys($array))."`)
                                      VALUES('".implode("','",$array)."')";
         }
 
@@ -137,11 +137,15 @@ function dd($array){
 function to($url){
     header("location:".$url);
 }
-
+// 4,Harris
 $User=new DB('user');
+// yu dian
 $News=new DB('news');
+//Me David
 $View=new DB('view');
+// dabao Doris
 $Que=new DB('que');
+//xiaowei binge
 $Log=new DB('log');
 
 
@@ -152,7 +156,7 @@ $Log=new DB('log');
  */
 
 if(!isset($_SESSION['view'])){
-    
+
     if($View->math('count','*',['date'=>date("Y-m-d")])>0){
         // print_r $View->math('count','*',['date'=>date("Y-m-d")]);
         $view=$View->find(['date'=>date("Y-m-d")]);
