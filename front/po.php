@@ -10,16 +10,34 @@
     </fieldset>
     <fieldset style="width:70%">
         <legend>文章列表</legend>
-    
+
     </fieldset>
 </div>
 
 
 <script>
+getlist(1)
 $(".tag").on('click',function(){
     let navtag=$(this).text()
     $("#navTag").text(navtag)
+    let type=$(this).data('type')
+    getlist(type)
 })
+
+function getlist(type){
+    $.get("api/getlist.php",{type},(list)=>{
+        $("#newslist").html(list)
+        $("#newslist").show()
+        $("#news").hide();
+    })
+}
+function getnews(id){
+    $.get("api/getnews.php",{id},(news)=>{
+        $("#news").html(news)
+        $("#news").show()
+        $("#newslist").hide()
+    })
+}
 
 
 </script>

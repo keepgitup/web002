@@ -78,6 +78,9 @@
         }
 
         ?>
+        <?php
+include_once "./api/getnews.php";
+?>
     </div>
 </fieldset>
 <script>
