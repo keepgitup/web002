@@ -50,14 +50,23 @@
 					?>
 					</span>
                     	<div class="">
+						<?php 
+						$do=$_GET['do']??'home3';
+						$file='back/'.$do.".php";
+						if(file_exists($file)){
+						include "$file";
+						}else{
+include "./back/home3.php";
+						}
+						?>
 						<?php
-							$do=$_GET['do']??'home';
-							$file='back/'.$do.".php";
-							if(file_exists($file)){
-								include $file;
-							}else{
-								include "./back/home.php";
-							}
+						// $do=$_GET['do']??'home';
+						// 	$file='back/'.$do.".php";
+						// 	if(file_exists($file)){
+						// 		include $file;
+						// 	}else{
+						// 		include "./back/home.php";
+						// 	}
 						?>
                 		</div>
                 </div>

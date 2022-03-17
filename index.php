@@ -49,14 +49,13 @@ include_once "./base.php";
 				<div>
 					<!-- 因為還有預設的padding 所以marquee設82的話 會把會員登入擠下去 -->
 					<marquee style="width:78%;display:inline-block;">請民眾踴躍投稿,讓電子報成為大家相互交流`分享的的園地,詳見最新文章</marquee>
-					<span style="width:18%; display:inline-block;">
-					<?php
+				<span style="width:18%; display:inline-block;">
+				<?php
 					if(isset($_SESSION['login'])){
-
 						if($_SESSION['login']=='admin'){
-						?>
+					?>
 							歡迎admin，<br><button onclick="location.href='back.php'">管理</button>|<button onclick='logout()'>登出</button>
-						<?php
+					<?php
 						}else{
 						?>
 							歡迎<?=$_SESSION['login'];?>，<button onclick='logout()'>登出</button>
@@ -72,17 +71,27 @@ include_once "./base.php";
 					?>
 					</span>
 					<div class="">
+						<?php 
+						$do=$_GET['do']??'home3';
+						$file="front/".$do.".php";
+						if(file_exists($file)){
+							include "$file";
+						}else{
+							// 只上一層
+							include "./front/home3.php";
+						}
+						?>
 						<?php
 						// 把其他php當成do,假如有get到 就存到$do 沒有就get home
-						$do=$_GET['do']??'home';
+						// $do=$_GET['do']??'home';
 						// print_r($do);
 						// 再把有存到du變數的 丟到$file 判斷$file有沒有東西
-						$file='front/'.$do.".php";
-						if (file_exists($file)){
-							include $file;
-						}else{
-							include "./front/home.php";
-						}
+						// $file='front/'.$do.".php";
+						// if (file_exists($file)){
+						// 	include $file;
+						// }else{
+						// 	include "./front/home.php";
+						// }
 
 						?>
 					</div>

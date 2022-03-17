@@ -9,8 +9,7 @@
             <td width="10%">刪除</td>
         </tr>
         <?php
-    
-        $total=$News->math("count","*");
+    $total=$News->math("count","*");
         $div=3;
         $pages=ceil($total/$div);
         $now=$_GET['p']??1;
